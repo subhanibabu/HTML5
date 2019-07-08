@@ -4,20 +4,24 @@
     <style type="text/css">
         .row {
             clear: left;
+            padding-left: 5px;
         }
 
             .row div {
                 float: left;
-                width: 10em;
+                width: 10px;
             }
     </style>
 </head>
 <body>
 
     <div class="row" style="width:150px;padding-left:10px;font-family:Arial;background-color:lightslategrey;width:1100px;height:60px;">
-        <p style="padding-top:0.05px;"><font color="white"><h2>NEWSFEED</h2></font></p>
+        <p style="padding-top:1px;">
+            <h2 style="display:inline;"><font color="white"> NEWSFEED </font></h2><h6 style="display:inline;">
+                <i>Yet Another NewsFeed</i>
+            </h6>
+        </p>
     </div>
-
     <div class="row" style="padding-top:5px;">
         <div style="background-color:gainsboro;width:150px;height:190px;"></div>
         <div style="width:700px;padding-left:15px;">
@@ -32,18 +36,21 @@
             <p style="background-color:brown;width:130px;padding:5px;"><font color="white">Continue Reading</font></p>
         </div>
         <div style="padding-left:15px;">
-            <p><b>SELECT CATEGORY</b></p>
-            <p>
+            <div style="width:500px;padding-top:5px;"><b>SELECT CATEGORY</b></div>
+            <div style="padding-top:5px;">
                 <select style="width:220px;">
                     <option value="All">All</option>
                 </select>
-            </p>
-            <p><b>SUBSCRIBE</b></p>
-            <div>
+            </div>
+            <div style="padding-top:10px;"><b>SUBSCRIBE</b></div>
+            <div style="width:500px;padding-top:5px;">
                 <input type="text" placeholder="Email Address" name="search">
                 <button style="background-color:darkslateblue;color:white;padding:3px;" type="submit">Subscribe</button>
             </div>
         </div>
+    </div>
+    <div class="row" style="width:1100px;">
+        <hr />
     </div>
     <div class="row">
         <div style="background-color:gainsboro;width:150px;height:190px;"></div>
@@ -58,6 +65,9 @@
             </p>
             <p style="background-color:brown;width:130px;padding:5px;"><font color="white">Continue Reading</font></p>
         </div>
+    </div>
+    <div class="row" style="width:1100px;">
+        <hr />
     </div>
     <div class="row">
         <div style="background-color:gainsboro;width:150px;height:190px;"></div>
@@ -74,7 +84,7 @@
         </div>
     </div>
     <div class="row" style="width:150px;padding-left:10px;font-family:Arial;background-color:lightslategrey;width:1100px;height:60px;text-align:center;">
-        <p style="padding-top:0.05px;"><font color="white"><h6>NewsFeed 2019</h6></font></p>
+        <p style="padding-top:0.05px;"><font color="white"><h6>&#169;NewsFeed 2019</h6></font></p>
     </div>
 </body>
 </html>
