@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="HomeTask2.css">
+    <script type="text/javascript" src="HomeTask2.js"></script>
+</head>
+<body>
+    <header>
+        <section class="header">
+            <p>
+                <h2> NEWSFEED </h2><h6>
+                    <i>Yet Another NewsFeed</i>
+                </h6>
+            </p>
+        </section>
+    </header>
+    <main>
+        <div id="container" style="width:100%;">
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <section id="dynamicsection">
+                        <p id="dynamictittle"><b></b></p>
+                        <p id="dynamiccategory" class="category"></p>
+                        <p id="dynamiccontent" class="content">
+                        </p>
+                    </section>
+                </div>
+            </div>
+            <div id="left" style="float:left; width:65%;">
+                <section id="tittle1" class="section">
+                    <div class="image"></div>
+                    <div class="contentDiv">
+                        <p id="ptittle1"><b>Tittle One</b></p>
+                        <p id="pcategory1" class="category">Posted on 29 June, 2019 If Category: Category One</p>
+                        <p id="pcontent1" class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
+                            maecenas accumsan lacus vel facilisis. Consectetur adipiscing elit, sed do eiusmad tempor
+                            incididunt ut labore et dolore magna aliquauis ipsum suspendisse ultrices gravidasus cammodo.
+                        </p>
+                        <button value="1" class="contentReading" onclick="openpopup(this.value)"><font color="white">Continue Reading</font></button>
+                    </div>
+                </section>
+                <section id="tittle2" class="section line">
+                    <div class="image"></div>
+                    <div class="contentDiv">
+                        <p id="ptittle2"><b>Title Two</b></p>
+                        <p id="pcategory2" class="category">Posted on 22 June, 2019 II Category: Category Two</p>
+                        <p id="pcontent2" class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
+                            maecenas accumsan lacus vel facilisis. Consectetur adipiscing elit, sed do eiusmad tempor
+                            incididunt ut labore et dolore magna aliquauis ipsum suspendisse ultrices gravidasus cammodo.
+                        </p>
+                        <button value="2" class="contentReading" onclick="openpopup(this.value)"><font color="white">Continue Reading</font></button>
+                    </div>
+                </section>
+                <section id="tittle3" class="section line">
+                    <div class="image"></div>
+                    <div class="contentDiv">
+                        <p id="ptittle3"><b>Title Three</b></p>
+                        <p id="pcategory3" class="category">Posted on 20 June, 2019 II Category: Category Three</p>
+                        <p id="pcontent3" class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
+                            maecenas accumsan lacus vel facilisis. Consectetur adipiscing elit, sed do eiusmad tempor
+                            incididunt ut labore et dolore magna aliquauis ipsum suspendisse ultrices gravidasus cammodo.
+                        </p>
+                        <button value="3" class="contentReading" onclick="openpopup(this.value)"><font color="white">Continue Reading</font></button>
+                    </div>
+                </section>
+                <section id="tittle4" class="section line">
+                    <div class="image"></div>
+                    <div class="contentDiv">
+                        <p id="ptittle4"><b>Title Four</b></p>
+                        <p id="pcategory4" class="category">Posted on 20 June, 2019 II Category: Category Four</p>
+                        <p id="pcontent4" class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
+                            maecenas accumsan lacus vel facilisis. Consectetur adipiscing elit, sed do eiusmad tempor
+                            incididunt ut labore et dolore magna aliquauis ipsum suspendisse ultrices gravidasus cammodo.
+                        </p>
+                        <button value="4" class="contentReading" onclick="openpopup(this.value)"><font color="white">Continue Reading</font></button>
+                    </div>
+                </section>
+                <section id="tittle5" class="section line">
+                    <div class="image"></div>
+                    <div class="contentDiv">
+                        <p id="ptittle5"><b>Title Five</b></p>
+                        <p id="pcategory5" class="category">Posted on 20 June, 2019 II Category: Category Five</p>
+                        <p id="pcontent5" class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
+                            maecenas accumsan lacus vel facilisis. Consectetur adipiscing elit, sed do eiusmad tempor
+                            incididunt ut labore et dolore magna aliquauis ipsum suspendisse ultrices gravidasus cammodo.
+                        </p>
+                        <button value="5" class="contentReading" onclick="openpopup(this.value)"><font color="white">Continue Reading</font></button>
+                    </div>
+                </section>
+
+            </div>
+            <div id="right" style="float:right; width:35%;">
+                <div id="selectcategories" class="selectcategory">
+                    <div class="email"><b>SELECT CATEGORY</b></div>
+                    <div class="all">
+                        <select class="selectwidth" id="category" onchange="SelectCategory()">
+                            <option value="All">All</option>
+                            <option value="TittleOne">TittleOne</option>
+                            <option value="TittleTwo">TittleTwo</option>
+                            <option value="TittleThree">TittleThree</option>
+                            <option value="TittleFour">TittleFour</option>
+                            <option value="TittleFive">TittleFive</option>
+                        </select>
+                    </div>
+                    <div class="padding"><b>SUBSCRIBE</b></div>
+                    <div class="email">
+                        <input type="text" id="email" placeholder="Email Address" name="search">
+                        <button class="subscribe" type="submit" onclick="ValidateEmail()">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <section class="footer">
+            <p>
+                <font color="white">
+                    <h6>&#169;NewsFeed 2019</h6>
+                </font>
+            </p>
+        </section>
+    </footer>
+    <script>
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function () {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
