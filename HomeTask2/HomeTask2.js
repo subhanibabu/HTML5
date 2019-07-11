@@ -30,6 +30,7 @@ function SelectCategory() {
         }
     }
 }
+
 function ValidateEmail() {
     var inputText = document.getElementById("email").value;
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
