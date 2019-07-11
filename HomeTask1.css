@@ -1,0 +1,106 @@
+.section {
+    clear: left;
+    padding-top: 10px;
+}
+
+.header {
+    clear: left;
+    width: 150px;
+    padding-left: 10px;
+    font-family: Arial;
+    background-color: #233954;
+    width: 1100px;
+    height: 60px;
+}
+
+    .header p {
+        padding-top: 1px;
+    }
+
+    .header h2 {
+        display: inline;
+        color: white;
+    }
+
+    .header h6 {
+        display: inline;
+        color: white;
+    }
+
+.footer {
+    clear: left;
+    width: 150px;
+    padding-left: 10px;
+    font-family: Arial;
+    width: 1100px;
+    height: 60px;
+    text-align: center;
+    padding-top: 5px;
+    background-color: #233954 !important;
+}
+
+.line {
+    padding-top: 10px;
+    width: 1100px;
+    border-top: solid;
+    border-top-width: 1px;
+}
+
+.image {
+    background-color: gainsboro;
+    width: 150px !important;
+    height: 175px !important;
+    padding-top: 10px !important;
+}
+
+.contentDiv {
+    width: 700px !important;
+    padding-left: 15px;
+}
+
+.content {
+    font-size: 14px;
+}
+
+.category {
+    font-size: 11px;
+}
+
+.contentReading {
+    background-color: #ed674c;
+    width: 130px !important;
+    padding: 5px !important;
+}
+
+.section div {
+    float: left;
+    width: 10px;
+}
+
+.selectcategory {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.padding {
+    padding-top: 5px;
+}
+
+.all {
+    padding-top: 10px;
+}
+
+.selectwidth {
+    width: 220px !important;
+}
+
+.email {
+    width: 500px !important;
+    padding-top: 5px;
+}
+
+.subscribe {
+    background-color: darkslateblue;
+    color: white;
+    padding: 3px;
+}
