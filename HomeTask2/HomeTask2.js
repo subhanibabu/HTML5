@@ -1,86 +1,33 @@
 
-function openpopup(value) {
+function OpenPopUp(value) {
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
-
+    var text = "Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.";
     document.getElementById("dynamictittle").innerHTML = document.getElementById("ptittle" + value).innerHTML;
     document.getElementById("dynamiccategory").innerHTML = document.getElementById("pcategory" + value).innerHTML;
-    document.getElementById("dynamiccontent").innerHTML = document.getElementById("pcontent" + value).innerHTML;
+    document.getElementById("dynamiccontent").innerHTML = document.getElementById("pcontent" + value).innerHTML + "<br/><br/>" + text;
 }
 
 function SelectCategory() {
     var value = document.getElementById("category").value;
-    if (value == "All") {
-        var tittle1 = document.getElementById("tittle1");
-        var tittle2 = document.getElementById("tittle2");
-        var tittle3 = document.getElementById("tittle3");
-        var tittle4 = document.getElementById("tittle4");
-        var tittle5 = document.getElementById("tittle5");
-        tittle1.style.display = "block";
-        tittle2.style.display = "block";
-        tittle3.style.display = "block";
-        tittle4.style.display = "block";
-        tittle5.style.display = "block";
+
+    if (value == "0") {
+        for (var i = 1; i < 11; i++) {
+            var tittle = document.getElementById("tittle" + i);
+            tittle.style.display = "block";
+        }
     }
-    if (value == "TittleOne") {
-        var tittle1 = document.getElementById("tittle1");
-        var tittle2 = document.getElementById("tittle2");
-        var tittle3 = document.getElementById("tittle3");
-        var tittle4 = document.getElementById("tittle4");
-        var tittle5 = document.getElementById("tittle5");
-        tittle1.style.display = "block";
-        tittle2.style.display = "none";
-        tittle3.style.display = "none";
-        tittle4.style.display = "none";
-        tittle5.style.display = "none";
-    }
-    if (value == "TittleTwo") {
-        var tittle1 = document.getElementById("tittle1");
-        var tittle2 = document.getElementById("tittle2");
-        var tittle3 = document.getElementById("tittle3");
-        var tittle4 = document.getElementById("tittle4");
-        var tittle5 = document.getElementById("tittle5");
-        tittle1.style.display = "none";
-        tittle2.style.display = "block";
-        tittle3.style.display = "none";
-        tittle4.style.display = "none";
-        tittle5.style.display = "none";
-    }
-    if (value == "TittleThree") {
-        var tittle1 = document.getElementById("tittle1");
-        var tittle2 = document.getElementById("tittle2");
-        var tittle3 = document.getElementById("tittle3");
-        var tittle4 = document.getElementById("tittle4");
-        var tittle5 = document.getElementById("tittle5");
-        tittle1.style.display = "none";
-        tittle2.style.display = "none";
-        tittle3.style.display = "block";
-        tittle4.style.display = "none";
-        tittle5.style.display = "none";
-    }
-    if (value == "TittleFour") {
-        var tittle1 = document.getElementById("tittle1");
-        var tittle2 = document.getElementById("tittle2");
-        var tittle3 = document.getElementById("tittle3");
-        var tittle4 = document.getElementById("tittle4");
-        var tittle5 = document.getElementById("tittle5");
-        tittle1.style.display = "none";
-        tittle2.style.display = "none";
-        tittle3.style.display = "none";
-        tittle4.style.display = "block";
-        tittle5.style.display = "none";
-    }
-    if (value == "TittleFive") {
-        var tittle1 = document.getElementById("tittle1");
-        var tittle2 = document.getElementById("tittle2");
-        var tittle3 = document.getElementById("tittle3");
-        var tittle4 = document.getElementById("tittle4");
-        var tittle5 = document.getElementById("tittle5");
-        tittle1.style.display = "none";
-        tittle2.style.display = "none";
-        tittle3.style.display = "none";
-        tittle4.style.display = "none";
-        tittle5.style.display = "block";
+    else {
+        for (var i = 1; i < 11; i++) {
+            if (value == i) {
+                var tittle = document.getElementById("tittle" + i);
+                tittle.style.display = "block";
+            }
+            else {
+                var tittle = document.getElementById("tittle" + i);
+                tittle.style.display = "none";
+            }
+        }
     }
 }
 function ValidateEmail() {
