@@ -1,23 +1,6 @@
-
 window.onload = function () {
 
-    var header = document.createElement('header');
-    document.body.appendChild(header);
-
-    var headerp = document.createElement('p');
-    headerp.className = 'header p';
-    header.appendChild(headerp);
-
-    var h2 = document.createElement('h2');
-    h2.textContent = 'NEWSFEED';
-    h2.className = 'header h2';
-    headerp.appendChild(h2);
-
-    var h6 = document.createElement('h6');
-    h6.textContent = 'Yet Another NewsFeed';
-    h6.className = 'header h6';
-    headerp.appendChild(h6);
-
+    document.body.appendChild(Header());
     var maindiv = document.createElement('div');
     maindiv.id = 'container';
     maindiv.className = 'maindiv';
@@ -28,10 +11,41 @@ window.onload = function () {
     leftdiv.className = 'leftdiv';
     maindiv.appendChild(leftdiv);
 
+    leftdiv.appendChild(CreateModal());
+
+    FetchDataFromJson(leftdiv);
+
+    var rightdiv = document.createElement('div');
+
+    maindiv.appendChild(GenerateCategories(rightdiv));
+
+    GenerateOptions();
+
+    rightdiv.appendChild(SubscribeCompent());
+
+    rightdiv.appendChild(EmailComponent());
+
+    document.body.appendChild(FooterComponent());
+}
+
+const FetchDataFromJson = (leftdiv) => {
+    fetch("News.json", {
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then((resp) => resp.json())
+        .then(data => {
+            FillNewsContent(leftdiv, JSON.parse(JSON.stringify(data)));
+        })
+        .catch(error => alert(error));
+}
+
+const CreateModal = () => {
     var modal = document.createElement('div');
     modal.id = 'myModal';
     modal.className = 'modal';
-    leftdiv.appendChild(modal);
 
     var modalcontent = document.createElement('div');
     modalcontent.className = 'modal-content';
@@ -62,10 +76,14 @@ window.onload = function () {
     dynamiccontent.className = 'content';
     dynamicsection.appendChild(dynamiccontent);
 
-    for (var i = 1; i < 11;i ++) {
+    return modal;
+}
+
+const FillNewsContent = (leftdiv, jsondata) => {
+    for (var i = 1; i < 11; i++) {
         var section = document.createElement('section');
         section.id = 'tittle' + i;
-        if (i == '1') {
+        if (i === 1) {
             section.className = 'section';
         }
         else {
@@ -82,7 +100,7 @@ window.onload = function () {
         section.appendChild(contentdiv);
 
         var tittle = document.createElement('p');
-        tittle.textContent = 'News Channel - ' + i;
+        tittle.textContent = jsondata.tittle + i;
         tittle.className = 'newschanneltext';
         tittle.id = 'ptittle' + i;
         contentdiv.appendChild(tittle);
@@ -90,13 +108,13 @@ window.onload = function () {
         var category = document.createElement('p');
         category.className = 'category';
         category.id = 'pcategory' + i;
-        category.textContent = 'Posted on 29 June, 2019 If Category: Category - ' + i;
+        category.textContent = jsondata.category + i;
         contentdiv.appendChild(category);
 
         var content = document.createElement('p');
         content.className = 'content';
         content.id = 'pcontent' + i;
-        content.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Quis ipsum suspendisse ultrices gravida.Risus commodo viverra maecenas accumsan lacus vel facilisis.Consectetur adipiscing elit, sed do eiusmad tempor incididunt ut labore et dolore magna aliquauis ipsum suspendisse ultrices gravidasus cammodo.';
+        content.textContent = jsondata.content;
         contentdiv.appendChild(content);
 
         var continuereading = document.createElement('button');
@@ -106,11 +124,12 @@ window.onload = function () {
         continuereading.onclick = function () { OpenPopUp(this.value)() };
         contentdiv.appendChild(continuereading);
     }
+}
 
-    var rightdiv = document.createElement('div');
+const GenerateCategories = (rightdiv) => {
+
     rightdiv.id = 'right';
     rightdiv.className = 'rightdiv';
-    maindiv.appendChild(rightdiv);
 
     var selectcategories = document.createElement('div');
     selectcategories.id = 'selectcategories';
@@ -131,10 +150,14 @@ window.onload = function () {
     select.onchange = function () { SelectCategory() };
     all.appendChild(select);
 
+    return rightdiv;
+}
+
+const GenerateOptions = () => {
     for (var i = 0; i < 11; i++) {
         var option = document.createElement("option");
         option.setAttribute("value", i);
-        if (i == 0) {
+        if (i === 0) {
             var text = document.createTextNode("All Channels");
         }
         else {
@@ -143,15 +166,39 @@ window.onload = function () {
         option.appendChild(text);
         document.getElementById("mySelect").appendChild(option);
     }
+}
 
+const Header = () => {
+    var header = document.createElement('header');
+
+    var headerp = document.createElement('p');
+    headerp.className = 'header p';
+    header.appendChild(headerp);
+
+    var h2 = document.createElement('h2');
+    h2.textContent = 'NEWSFEED';
+    h2.className = 'header h2';
+    headerp.appendChild(h2);
+
+    var h6 = document.createElement('h6');
+    h6.textContent = 'Yet Another NewsFeed';
+    h6.className = 'header h6';
+    headerp.appendChild(h6);
+
+    return header;
+}
+
+const SubscribeCompent = () => {
     var subscribe = document.createElement('div');
     subscribe.className = 'padding';
     subscribe.textContent = 'SUBSCRIBE';
-    rightdiv.appendChild(subscribe);
 
+    return subscribe;
+}
+
+const EmailComponent = () => {
     var emaildiv = document.createElement('div');
     emaildiv.className = 'email';
-    rightdiv.appendChild(emaildiv);
 
     var emailaddress = document.createElement('input');
     emailaddress.type = 'text';
@@ -168,9 +215,11 @@ window.onload = function () {
     subscribe.onclick = function () { ValidateEmail() };
     emaildiv.appendChild(subscribe);
 
-    var footer = document.createElement('footer');
-    document.body.appendChild(footer);
+    return emaildiv;
+}
 
+const FooterComponent = () => {
+    var footer = document.createElement('footer');
     var footerp = document.createElement('p');
     footerp.className = 'footer';
     footer.appendChild(footerp);
@@ -178,9 +227,11 @@ window.onload = function () {
     var footerh6 = document.createElement('h6');
     footerh6.innerHTML = '&copy;NewsFeed 2019';
     footerp.appendChild(footerh6);
+
+    return footer;
 }
 
-function OpenPopUp(value) {
+const OpenPopUp = (value) => {
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
     let text = "Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.";
@@ -189,16 +240,16 @@ function OpenPopUp(value) {
     document.getElementById("dynamiccontent").innerHTML = document.getElementById("pcontent" + value).innerHTML + "<br/><br/>" + text;
 }
 
-function ClosePopUp() {
+const ClosePopUp = () => {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
 
-function SelectCategory() {
-    const value = document.getElementById("mySelect").value;
-    if (value == "0") {
+const SelectCategory = () => {
+    var value = document.getElementById("mySelect").value;
+    if (value == 0) {
         for (var i = 1; i < 11; i++) {
-            if (i == 1) {
+            if (i === 1) {
                 let tittle = document.getElementById("tittle" + i);
                 tittle.style.display = "block";
                 tittle.className = 'section';
@@ -225,7 +276,7 @@ function SelectCategory() {
     }
 }
 
-function ValidateEmail() {
+var ValidateEmail = () => {
     var inputText = document.getElementById("email").value;
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (inputText.match(mailformat)) {
