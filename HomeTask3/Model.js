@@ -1,6 +1,5 @@
-class Model extends EventEmitter {
+class Model{
     constructor() {
-        super();
     }
 
    async getAPIData() {
