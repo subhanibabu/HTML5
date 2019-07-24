@@ -2,15 +2,10 @@ class Controller {
     constructor(model, view) {
         this._model = model;
         this._view = view;
-
-        view.on('addButtonClicked', idx => this.SelectCategory(idx));
-        view.on('validateEmailButtonClicked', () => this.ValidateEmail());
-        view.on('addOpenPopUpbuttonclick', value => this.OpenPopUp(value));
-        view.on('ClosePopUpButtonClick', () => this.ClosePopUp());
     }
 
-    SelectCategory(value) {
-        if (value == 0) {
+    SelectCategory(category) {
+        if (category === 0) {
             for (var i = 1; i < 11; i++) {
                 if (i === 1) {
                     let tittle = document.getElementById("tittle" + i);
@@ -26,7 +21,7 @@ class Controller {
         }
         else {
             for (var i = 1; i < 11; i++) {
-                if (value == i) {
+                if (category === i) {
                     let tittle = document.getElementById("tittle" + i);
                     tittle.style.display = "block";
                     tittle.className = 'section';
