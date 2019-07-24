@@ -1,4 +1,4 @@
-class View extends EventEmitter {
+class View extends Controller {
     constructor(model) {
         super();
         this._model = model;
@@ -51,7 +51,7 @@ class View extends EventEmitter {
         span.className = 'close';
         span.id = 'close';
         span.addEventListener('click',
-            () => this.emit('ClosePopUpButtonClick'));
+            () => this.ClosePopUp());
         span.innerHTML = "&times;"
         modalcontent.appendChild(span);
 
@@ -122,7 +122,7 @@ class View extends EventEmitter {
             continuereading.textContent = 'Continue Reading';
             continuereading.value = i;
             continuereading.addEventListener('click',
-                e => this.emit('addOpenPopUpbuttonclick',e.target.value));
+                e => this.OpenPopUp(e.target.value));
             contentdiv.appendChild(continuereading);
 
             var line = document.createElement('p');
@@ -152,7 +152,7 @@ class View extends EventEmitter {
         select.setAttribute("id", "mySelect");
         select.className = 'selectwidth';
         select.addEventListener('change',
-           e => this.emit('addButtonClicked', e.target.selectedIndex));
+           e => this.SelectCategory(e.target.selectedIndex));
         all.appendChild(select);
 
         return rightdiv;
@@ -212,7 +212,7 @@ class View extends EventEmitter {
         subscribe.type = 'submit';
         subscribe.textContent = 'Subscribe';
         subscribe.addEventListener('click',
-            () => this.emit('validateEmailButtonClicked'));
+            () => this.ValidateEmail());
         emaildiv.appendChild(subscribe);
 
         return emaildiv;
