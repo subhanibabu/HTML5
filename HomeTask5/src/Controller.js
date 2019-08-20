@@ -4,37 +4,26 @@ export default class Controller {
         this._view = view;
     }
 
-    SelectCategory(category) {
-        if (category === 0) {
+    selectCategory = (category) =>{
             for (var i = 1; i < 11; i++) {
-                if (i === 1) {
+                if ((category === 0 && i === 1) || category === i) {
                     let tittle = document.getElementById("tittle" + i);
                     tittle.style.display = "block";
                     tittle.className = 'section';
                 }
-                else {
+                else if(category === 0) {
                     let tittle = document.getElementById("tittle" + i);
                     tittle.style.display = "block";
                     tittle.className = 'section line';
-                }
-            }
-        }
-        else {
-            for (var i = 1; i < 11; i++) {
-                if (category === i) {
-                    let tittle = document.getElementById("tittle" + i);
-                    tittle.style.display = "block";
-                    tittle.className = 'section';
                 }
                 else {
                     let tittle = document.getElementById("tittle" + i);
                     tittle.style.display = "none";
                 }
             }
-        }
     }
 
-    OpenPopUp(value) {
+    openPopUp = (value) =>{
         // getter example
         var news = {
             text: "Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.",
@@ -51,13 +40,12 @@ export default class Controller {
         document.getElementById("dynamiccontent").innerHTML = document.getElementById("pcontent" + value).innerHTML + "<br/><br/>" + text;
     }
 
-    ClosePopUp() {
+    closePopUp = () =>{
         var modal = document.getElementById("myModal");
         modal.style.display = "none";
     }
 
-    GetNewsHeadLines()
-    {
+    getNewsHeadLines = ()=>{
         this._model.getHeadLines().then(response => {
         const data = JSON.parse(JSON.stringify(response));
 
@@ -69,10 +57,10 @@ export default class Controller {
         });        
     }
 
-    ValidateEmail() {
+    validateEmail = () =>{
 
         // setter example
-        var email = {
+        let email = {
             alertMessage: "",
             set message(value) {
                 this.alertMessage = value;
@@ -87,8 +75,8 @@ export default class Controller {
         // Object Destructuring
         const { message} = alertMessage;
 
-        var inputText = document.getElementById("email").value;
-        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let inputText = document.getElementById("email").value;
+        let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (inputText.match(mailformat)) {
             if (typeof (Storage) !== "undefined") {
                 localStorage.setItem("name", inputText);

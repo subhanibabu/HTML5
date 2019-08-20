@@ -7,16 +7,16 @@ export default class View extends Controller {
         this._model = model;
     }
 
-    LoadView() {
+    loadView = () =>{
         this._model.getAPIData().then(response => {
             const json = JSON.parse(JSON.stringify(response));
-            this.CreateDOM(json);
+            this.createDOM(json);
         });
     }
 
-    CreateDOM(jsondata) {
+    createDOM = (jsondata) =>{
 
-        document.body.appendChild(this.Header());
+        document.body.appendChild(this.header());
 
         var maindiv = document.createElement('div');
         maindiv.id = 'container';
@@ -28,20 +28,20 @@ export default class View extends Controller {
         leftdiv.className = 'leftdiv';
         maindiv.appendChild(leftdiv);
 
-        leftdiv.appendChild(this.CreateModal());
+        leftdiv.appendChild(this.createModal());
 
-        this.FillNewsContent(leftdiv, jsondata);
+        this.fillNewsContent(leftdiv, jsondata);
 
         var rightdiv = document.createElement('div');
 
-        maindiv.appendChild(this.GenerateCategories(rightdiv));
+        maindiv.appendChild(this.generateCategories(rightdiv));
 
-        this.GenerateOptions();
+        this.generateOptions();
 
-        document.body.appendChild(this.FooterComponent());
+        document.body.appendChild(this.footerComponent());
     }
 
-    CreateModal() {
+    createModal = () =>{
         var modal = document.createElement('div');
         modal.id = 'myModal';
         modal.className = 'modal';
@@ -54,7 +54,7 @@ export default class View extends Controller {
         span.className = 'close';
         span.id = 'close';
         span.addEventListener('click',
-            () => this.ClosePopUp());
+            () => this.closePopUp());
         span.innerHTML = "&times;"
         modalcontent.appendChild(span);
 
@@ -79,7 +79,7 @@ export default class View extends Controller {
         return modal;
     }
 
-    FillNewsContent(leftdiv, data) {
+    fillNewsContent = (leftdiv, data) =>{
         for (var i = 1; i < 11; i++) {
             var section = document.createElement('section');
             section.id = 'tittle' + i;
@@ -125,7 +125,7 @@ export default class View extends Controller {
             continuereading.textContent = 'Continue Reading';
             continuereading.value = i;
             continuereading.addEventListener('click',
-                e => this.OpenPopUp(e.target.value));
+                e => this.openPopUp(e.target.value));
             contentdiv.appendChild(continuereading);
 
             var line = document.createElement('p');
@@ -133,7 +133,7 @@ export default class View extends Controller {
         }
     }
 
-    GenerateCategories(rightdiv) {
+    generateCategories = (rightdiv) =>{
 
         rightdiv.id = 'right';
         rightdiv.className = 'rightdiv';
@@ -155,13 +155,13 @@ export default class View extends Controller {
         select.setAttribute("id", "mySelect");
         select.className = 'selectwidth';
         select.addEventListener('change',
-           e => this.SelectCategory(e.target.selectedIndex));
+           e => this.selectCategory(e.target.selectedIndex));
         all.appendChild(select);
 
         return rightdiv;
     }
 
-    GenerateOptions() {
+    generateOptions = () =>{
         for (var i = 0; i < 11; i++) {
             var option = document.createElement("option");
             option.setAttribute("value", i);
@@ -176,7 +176,7 @@ export default class View extends Controller {
         }
     }
 
-    Header() {
+    header = () =>{
         var header = document.createElement('header');
 
         var headerp = document.createElement('p');
@@ -193,12 +193,12 @@ export default class View extends Controller {
         h6.className = 'header h6';
         headerp.appendChild(h6);
 
-        headerp.appendChild(this.EmailComponent());
+        headerp.appendChild(this.emailComponent());
 
         return header;
     }
 
-    EmailComponent() {
+    emailComponent = () =>{
         var emaildiv = document.createElement('div');
         emaildiv.className = 'email';
 
@@ -207,7 +207,7 @@ export default class View extends Controller {
         newsheadlines.type = 'submit';
         newsheadlines.textContent = 'NewsHeadLines';
         newsheadlines.addEventListener('click',
-            () => this.GetNewsHeadLines());
+            () => this.getNewsHeadLines());
         emaildiv.appendChild(newsheadlines);
 
         var emailaddress = document.createElement('input');
@@ -223,13 +223,13 @@ export default class View extends Controller {
         subscribe.type = 'submit';
         subscribe.textContent = 'Subscribe';
         subscribe.addEventListener('click',
-            () => this.ValidateEmail());
+            () => this.validateEmail());
         emaildiv.appendChild(subscribe);
 
         return emaildiv;
     }
 
-    FooterComponent() {
+    footerComponent = () =>{
         var footer = document.createElement('footer');
         var footerp = document.createElement('p');
         footerp.className = 'footer';

@@ -26,6 +26,7 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "browserify": "^16.5.0",
     "es6-promise": "^4.2.8",
     "isomorphic-fetch": "^2.2.1"
