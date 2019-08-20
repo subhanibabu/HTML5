@@ -46,7 +46,7 @@ export default class Controller {
     }
 
     getNewsHeadLines = ()=>{
-        this._model.getHeadLines().then(response => {
+        this._model.getAPIData().then(response => {
         const data = JSON.parse(JSON.stringify(response));
 
         var modal = document.getElementById("myModal");

@@ -11298,7 +11298,7 @@ var Controller = function Controller(model, view) {
   });
 
   _defineProperty(this, "getNewsHeadLines", function () {
-    _this._model.getHeadLines().then(function (response) {
+    _this._model.getAPIData().then(function (response) {
       var data = JSON.parse(JSON.stringify(response));
       var modal = document.getElementById("myModal");
       modal.style.display = "block";
@@ -11439,43 +11439,6 @@ function () {
       }
 
       return getAPIData;
-    }()
-  }, {
-    key: "getHeadLines",
-    value: function () {
-      var _getHeadLines = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2() {
-        var res, json;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=3965cc2342c54e7caa002ab6bf398348");
-
-              case 2:
-                res = _context2.sent;
-                _context2.next = 5;
-                return res.json();
-
-              case 5:
-                json = _context2.sent;
-                return _context2.abrupt("return", json);
-
-              case 7:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      function getHeadLines() {
-        return _getHeadLines.apply(this, arguments);
-      }
-
-      return getHeadLines;
     }()
   }]);
 
