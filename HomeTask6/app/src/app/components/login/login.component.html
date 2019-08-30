@@ -1,0 +1,49 @@
+<form [formGroup]="loginForm">
+<div>
+    <table width="100%" class="header">
+        <tr>
+            <td align="left">
+                <img src="assets/images/HeaderLogo.png">
+            </td>
+            <td align="right">
+                &nbsp;&nbsp;
+                <button [routerLink]="['']">Log Out</button>
+                &nbsp;&nbsp;
+            </td>
+        </tr>
+    </table>    
+</div>
+
+<table class="login">
+    <tr > 
+        <td>
+            <label>UserName : </label>
+        </td>
+        <td>
+            <input type="text" formControlName="username" required>
+            <div *ngIf=" loginForm.controls.username.touched && 
+            loginForm.controls.username.invalid">UserName is required</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Password : </label>
+        </td>
+        <td>
+            <input type="text" formControlName="password" required>
+            <div *ngIf=" loginForm.controls.password.touched && 
+            loginForm.controls.password.invalid">Password is required</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" (click)="loginCheck()">Submit</button>
+        </td>
+    </tr>
+    <tr>
+        <label id="lblName">
+            {{invalidUser}}
+        </label>
+    </tr>
+</table>
+</form>

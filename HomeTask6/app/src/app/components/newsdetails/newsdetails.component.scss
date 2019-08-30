@@ -4,12 +4,17 @@
 }
 
 .image {
-    width: 300px !important;
+    padding-top: 20px;
+    width: 50px !important;
 }
-
+.imagesize
+{
+    width:180px;
+    height: 130px; 
+}
 .contentDiv {
-    width: 700px !important;
-    padding-left: 15px;
+    width: 500px !important;
+    padding-left: 180px;
 }
 
 .content {
@@ -18,12 +23,6 @@
 
 .category {
     font-size: 11px;
-}
-
-.contentReading {
-    background-color: #ed674c;
-    width: 130px !important;
-    padding: 5px !important;
 }
 
 .section div {

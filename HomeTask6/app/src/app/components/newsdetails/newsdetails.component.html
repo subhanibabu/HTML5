@@ -1,0 +1,28 @@
+<app-header></app-header>
+<table>
+    <tr>
+        <td>
+            <section id="tittle1" class="section">
+                <div class="image">
+                    <img class="imagesize" src="{{item.urlToImage}}">
+                </div>
+                <div class="contentDiv">
+                    <p><b>{{item.title}}</b></p>
+                    <p class="content">
+                        {{item.description}}
+                    </p>
+                    <p class="category"><b>Date:</b> {{item.publishedAt}}</p>
+                    <p><b>Author :</b> {{item.author}}</p>
+                </div>
+        </section>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="padding-left: 500px;"> 
+                <button type="button" [routerLink]="['/News']">GoTo NewsPage</button>
+            </div>
+        </td>
+    </tr>
+</table>
+<br>
