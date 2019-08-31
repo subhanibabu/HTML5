@@ -12,6 +12,7 @@ export class NewsService {
   apiURL: string;
   subject: Subject<string> = new Subject<string>();
   author: [];
+  loggedInUserName : string;
 
    constructor(private http : HttpClient) {
   }
@@ -30,11 +31,19 @@ export class NewsService {
     return this.results
   }
 
-  public setAuthor(author: []): void {
+  set setSelectedNews(author: []){
     this.author = author;
-}
+  }
 
-  get getAuthor(): [] {
+  get getSelectedNews(): [] {
     return this.author;
   }
+
+  set setLoggedInUserName(loggedInUserName: string){
+    this.loggedInUserName = loggedInUserName;
+  }
+
+  get getLoggedInUserName(): string {
+    return this.loggedInUserName;
+  } 
 }

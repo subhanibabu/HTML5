@@ -10,7 +10,7 @@ export class NewsdetailsComponent implements OnInit {
   private item: [];
 
   constructor(private newsService:NewsService) { 
-    this.item = newsService.getAuthor;
+    this.item = newsService.getSelectedNews;
   }
 
   ngOnInit() {

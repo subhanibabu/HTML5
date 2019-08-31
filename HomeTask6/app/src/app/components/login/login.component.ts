@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
 import {Router} from '@angular/router';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +17,12 @@ export class LoginComponent implements OnInit {
     password : new FormControl('')
     });
 
-  constructor(private router: Router) { }
-
-  ngOnInit() {
+  constructor(private router: Router, private newsService: NewsService) { 
+    
   }
+
+  ngOnInit() { }
+
   loginCheck()
   {
     if(this.loginForm.get('username').value != '' && this.loginForm.get('password').value != '')
@@ -27,6 +30,7 @@ export class LoginComponent implements OnInit {
       if(this.loginForm.get('username').value ==='angular' && this.loginForm.get('password').value==='angular')
       {
         this.invalidUser = '';
+        this.newsService.setLoggedInUserName = this.loginForm.get('username').value;
         this.router.navigateByUrl('/News');
       }
       else{

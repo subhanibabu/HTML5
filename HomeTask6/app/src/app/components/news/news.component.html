@@ -1,4 +1,4 @@
-<app-header (emitValue)="changedvalue($event)" (filterTextValue)="filterText($event)"></app-header>
+<app-header (emitSourceValue)="changedvalue($event)" (emitfilterTextValue)="filterText($event)"></app-header>
 
 <section id="tittle1" class="section" *ngFor="let item of this.results | filter : filterSource">
         <div class="image">
@@ -10,7 +10,7 @@
             <p class="content">
                 {{item.description}}
             </p>
-            <button type="button" (click)="setAuthor(item);" [routerLink]="['/NewsDetails']" 
+            <button type="button" (click)="sendSelectedItem(item);" [routerLink]="['/NewsDetails']" 
             class="contentReading"><font color="white">Continue Reading</font></button>
         </div>
 </section>

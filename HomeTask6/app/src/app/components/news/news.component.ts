@@ -37,8 +37,8 @@ export class NewsComponent implements OnInit {
     this.filterSource = source;
   }
 
-  setAuthor(author:[]):void{  
-    this.newsService.setAuthor(author);
+  sendSelectedItem(item:[]):void{  
+    this.newsService.setSelectedNews = item;
   }
 
   ngOnDestroy() {

@@ -10,23 +10,25 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit {
   sources: string[] =  ['All Sources','cnn', 'bbc-news', 'cnbc', 'fortune', 'google-news', 'metro', 'mirror', 'talksport', 'time', 'the-hindu'];
   selectedSourceTitle = 'All Sources';
+  loggedInUserName: string;
   searchText = '';
   subscription: Subscription;
-  @Output() emitValue = new EventEmitter<string>();
-  @Output() filterTextValue = new EventEmitter<string>();
+  @Output() emitSourceValue = new EventEmitter<string>();
+  @Output() emitfilterTextValue = new EventEmitter<string>();
 
   constructor(private newsService:NewsService) {
+    this.loggedInUserName = newsService.getLoggedInUserName;
    }
 
   ngOnInit() {
   }
  
   selectChangedValue(source: string):void{    
-    this.emitValue.emit(source);
+    this.emitSourceValue.emit(source);
   }
 
   filterText():void{   
-    this.filterTextValue.emit(this.searchText);
+    this.emitfilterTextValue.emit(this.searchText);
   }
 
   ngOnDestroy() {
