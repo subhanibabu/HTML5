@@ -1,0 +1,29 @@
+<app-header>
+    <td style="width: 270px;">
+        <select (change)="changedvalue($event.target.value)" [(ngModel)]="selectedSourceTitle">
+            <option *ngFor="let source of sources" [value]="source">{{source}}</option>
+        </select>                          
+    </td>
+    <td>
+        <b>Selected Source:</b> {{selectedSourceTitle}}
+    </td>
+    <td>
+        <input [(ngModel)]="searchText" placeholder="Type your tittle here...">
+        <button (click)="filterText(searchText)" type="button">Filter</button>
+    </td>  
+</app-header>
+
+<section id="tittle1" class="section" *ngFor="let item of results | filter : filterSource">
+        <div class="image">
+            <img class="imagesize" src="{{item.urlToImage}}">
+        </div>
+        <div class="contentDiv">
+            <p><b>{{item.title}}</b></p>
+            <p class="category">Published At : {{item.publishedAt | date:'fullDate' }}</p>
+            <p class="content">
+                {{item.description}}
+            </p>
+            <button type="button" (click)="sendSelectedItem(item);" [routerLink]="['/NewsDetails']" 
+            class="contentReading"><font color="white">Continue Reading</font></button>
+        </div>
+</section>
