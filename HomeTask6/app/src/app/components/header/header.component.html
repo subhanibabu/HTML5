@@ -1,0 +1,46 @@
+<div>
+    <table width="100%" class="header">
+        <tr>
+            <td align="left">
+                <img src="assets/images/HeaderLogo.png">
+            </td>
+            <td align="right"> 
+                <label>Login User is : </label>
+                <label id="lblName">
+                    {{loggedInUserName}}
+                </label>
+                &nbsp;&nbsp;
+                <button [routerLink]="['']">Log Out</button>
+                &nbsp;&nbsp;
+            </td>
+        </tr>
+    </table>
+    <table width="100%" class="header1">
+        <tr>
+            <td></td>
+            <td style="width: 400px;"> 
+
+            </td>
+            <td>
+                <b>Selected Source:</b> {{selectedSourceTitle}}
+            </td>
+        </tr>
+    </table>
+    <table width="100%" class="header2">
+        <tr>
+            <td style="width: 410px;">
+                <select (change)="selectChangedValue($event.target.value)" [(ngModel)]="selectedSourceTitle">
+                    <option *ngFor="let source of sources" [value]="source">{{source}}</option>
+                </select>                          
+            </td>
+            <td>
+                    <input [(ngModel)]="searchText" placeholder="Type your tittle here...">
+                    <button (click)="filterText()" type="button">Filter</button>
+            </td>
+            <td align="right">
+                <button [routerLink]="['/AddArticle']">Add Article</button>
+                &nbsp;&nbsp;
+            </td>
+        </tr>
+    </table>
+</div>

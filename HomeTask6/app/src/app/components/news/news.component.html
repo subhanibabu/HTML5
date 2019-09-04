@@ -1,0 +1,16 @@
+<app-header (emitSourceValue)="changedvalue($event)" (emitfilterTextValue)="filterText($event)"></app-header>
+
+<section id="tittle1" class="section" *ngFor="let item of this.results | filter : filterSource">
+        <div class="image">
+            <img class="imagesize" src="{{item.urlToImage}}">
+        </div>
+        <div class="contentDiv">
+            <p><b>{{item.title}}</b></p>
+            <p class="category">Published At : {{item.publishedAt}}</p>
+            <p class="content">
+                {{item.description}}
+            </p>
+            <button type="button" (click)="sendSelectedItem(item);" [routerLink]="['/NewsDetails']" 
+            class="contentReading"><font color="white">Continue Reading</font></button>
+        </div>
+</section>

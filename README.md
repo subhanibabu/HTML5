@@ -1,0 +1,1 @@
+Training in Epam systems on Angular JS

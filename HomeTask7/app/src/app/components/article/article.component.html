@@ -1,0 +1,54 @@
+<form [formGroup]="addArticleForm" (ngSubmit)="onSubmit()" class="form-group">
+<table>
+    <tr > 
+        <td>
+            <label>Heading</label><br>
+            <input type="text" formControlName="title">
+            <div *ngIf=" addArticleForm.controls.title.touched && 
+            addArticleForm.controls.title.invalid">Heading is required</div>
+        </td>
+        <td>
+            <label>Date</label><br>
+            <input type="text" formControlName="publishedAt">
+            <div *ngIf=" addArticleForm.controls.publishedAt.touched && 
+            addArticleForm.controls.publishedAt.invalid">Date is required</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Short Description</label><br>
+            <input type="text" formControlName="description">
+            <div *ngIf=" addArticleForm.controls.description.touched && 
+            addArticleForm.controls.description.invalid">Description is required</div>
+        </td>
+        <td>
+            <label>Author</label><br>
+            <input type="text" formControlName="author">
+            <div *ngIf=" addArticleForm.controls.author.touched && 
+            addArticleForm.controls.author.invalid">Author is required</div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Content</label><br>
+            <textarea class="textarea" formControlName="content"></textarea>
+            <div *ngIf=" addArticleForm.controls.content.touched && 
+            addArticleForm.controls.content.invalid">content is required</div>
+        </td>
+        <td class="SourceURL">
+            <label>Source URL</label><br>
+            <input type="text" formControlName="urlToImage"><br>
+            <div *ngIf=" addArticleForm.controls.urlToImage.touched && 
+            addArticleForm.controls.urlToImage.invalid">Source URL is required</div>
+            
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-left: 100px;">
+            <button type="submit" [disabled]="!addArticleForm.valid">Save</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button (click)="closedialog()">Colse</button>
+        </td>
+    </tr>
+</table>
+</form>
