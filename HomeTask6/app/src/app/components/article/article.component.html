@@ -4,13 +4,13 @@
     <tr > 
         <td>
             <label>Heading</label><br>
-            <input type="text" formControlName="heading" required>
+            <input type="text" formControlName="heading">
             <div *ngIf=" addArticleForm.controls.heading.touched && 
             addArticleForm.controls.heading.invalid">Heading is required</div>
         </td>
         <td>
             <label>Date</label><br>
-            <input type="text" formControlName="date" required>
+            <input type="text" formControlName="date">
             <div *ngIf=" addArticleForm.controls.date.touched && 
             addArticleForm.controls.date.invalid">Date is required</div>
         </td>
@@ -18,13 +18,13 @@
     <tr>
         <td>
             <label>Short Description</label><br>
-            <input type="text" formControlName="description" required>
+            <input type="text" formControlName="description">
             <div *ngIf=" addArticleForm.controls.description.touched && 
             addArticleForm.controls.description.invalid">Description is required</div>
         </td>
         <td>
             <label>Author</label><br>
-            <input type="text" formControlName="author" required>
+            <input type="text" formControlName="author">
             <div *ngIf=" addArticleForm.controls.author.touched && 
             addArticleForm.controls.author.invalid">Author is required</div>
         </td>
@@ -32,13 +32,13 @@
     <tr>
         <td>
             <label>Content</label><br>
-            <textarea class="textarea" formControlName="content" required></textarea>
+            <textarea class="textarea" formControlName="content"></textarea>
             <div *ngIf=" addArticleForm.controls.content.touched && 
             addArticleForm.controls.content.invalid">content is required</div>
         </td>
         <td class="SourceURL">
             <label>Source URL</label><br>
-            <input type="text" formControlName="sourceURL" required><br>
+            <input type="text" formControlName="sourceURL"><br>
             <div *ngIf=" addArticleForm.controls.sourceURL.touched && 
             addArticleForm.controls.sourceURL.invalid">Source URL is required</div>
             <button [routerLink]="['/News']" (click)="updateArticle()" [disabled]="!addArticleForm.valid">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button [routerLink]="['/News']">Cancel</button>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,FormGroup } from '@angular/forms';
+import { FormControl,FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import { NewsService } from 'src/app/services/news.service';
 
@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   username : string;
   invalidUser: string;
   loginForm = new FormGroup({
-    username : new FormControl(''),
-    password : new FormControl('')
+    username : new FormControl('', Validators.required),
+    password : new FormControl('', Validators.required)
     });
 
   constructor(private router: Router, private newsService: NewsService) { 
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   loginCheck()
   {
-    if(this.loginForm.get('username').value != '' && this.loginForm.get('password').value != '')
+    if(this.loginForm.valid)
     {
       if(this.loginForm.get('username').value ==='angular' && this.loginForm.get('password').value==='angular')
       {

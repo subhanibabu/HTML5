@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { FormControl,FormGroup } from '@angular/forms';
+import { FormControl,FormGroup, Validators } from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import { NewsService } from '../../services/news.service';
 import {Router} from '@angular/router';
@@ -13,12 +13,12 @@ import {Router} from '@angular/router';
 export class ArticleComponent implements OnInit {
   subscription: Subscription;
   addArticleForm = new FormGroup({
-    title : new FormControl(''),
-    publishedAt : new FormControl(''),
-    description : new FormControl(''),
-    author : new FormControl(''),
-    content : new FormControl(''),
-    urlToImage : new FormControl('')
+    title : new FormControl('', Validators.required),
+    publishedAt : new FormControl('', Validators.required),
+    description : new FormControl('', Validators.required),
+    author : new FormControl('', Validators.required),
+    content : new FormControl('', Validators.required),
+    urlToImage : new FormControl('', Validators.required)
   });
   constructor(public dialog: MatDialog, private newsService:NewsService,private router: Router) { }
 

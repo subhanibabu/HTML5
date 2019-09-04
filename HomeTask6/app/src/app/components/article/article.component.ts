@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { FormControl,FormGroup } from '@angular/forms';
+import { FormControl,FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-article',
@@ -10,12 +10,12 @@ import { FormControl,FormGroup } from '@angular/forms';
 export class ArticleComponent implements OnInit {
   subscription: Subscription;
   addArticleForm = new FormGroup({
-  heading : new FormControl(''),
-  date : new FormControl(''),
-  description : new FormControl(''),
-  author : new FormControl(''),
-  content : new FormControl(''),
-  sourceURL : new FormControl('')
+  heading : new FormControl('', Validators.required),
+  date : new FormControl('', Validators.required),
+  description : new FormControl('', Validators.required),
+  author : new FormControl('', Validators.required),
+  content : new FormControl('', Validators.required),
+  sourceURL : new FormControl('', Validators.required)
   });
   constructor() { }
 
