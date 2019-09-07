@@ -1,0 +1,28 @@
+    <table width="100%" class="header">
+        <tr>
+            <td align="left">
+                <img src="assets/images/HeaderLogo.png">
+            </td>
+            <td align="center">
+                <app-ad-banner [ads]="ads"></app-ad-banner>
+            </td>
+            <td align="right"> 
+                <label>LoggedIn User is : </label>
+                <label id="lblName">
+                    {{loggedInUserName}}
+                </label>
+                &nbsp;&nbsp;
+                <button [routerLink]="['']">Log Out</button>
+                &nbsp;&nbsp;
+            </td>
+        </tr>
+    </table>
+    <table width="100%" class="header2">
+        <tr>
+            <ng-content></ng-content>
+            <td align="right">
+                <button *ngIf="adminGuard.canActivate()" (click)="openDialog()">Add Article</button>
+                &nbsp;&nbsp;
+            </td>
+        </tr>
+    </table>
